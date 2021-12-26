@@ -1,0 +1,31 @@
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    @if ($message = Session::get('danger'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
+
+
+
+<form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                        <a class="btn btn-info" href="{{ route('posts.show',$post->id) }}"><i class="fas fa-eye"></i></a>
+
+                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}"><i class="fas fa-edit"></i></a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+
+
+
+
+
+INSERT INTO `todo` (`id`, `title`, `description`, `date`, `time`) VALUES ('1', 'Do somthing', 'for my future...', '2021-12-18', '08:00:00');
